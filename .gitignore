@@ -1,0 +1,6 @@
+.env
+.teste
+.vscode
+*.sqlite
+*pyc
+__pycache__
