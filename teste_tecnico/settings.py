@@ -9,9 +9,13 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from ctypes import cast
+from email.policy import default
+import os
 import django_heroku
 from pathlib import Path
 from decouple import config, Csv
+from dj_database_url import parse as dburl
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,15 +81,9 @@ WSGI_APPLICATION = 'teste_tecnico.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+default_dburl = 'postgres://' + os.path.join(BASE_DIR, 'db.postgresql')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'U8rJRlnmGUMrxMZ8jYuS',
-        'HOST': 'teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com',
-        'PORT': 5432,
-    }
+    'default': config('DATABASE_URL', default=default_dburl, cast = dburl),
 }
 
 
