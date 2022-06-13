@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from ctypes import cast
+from email.policy import default
 import os
 import django_heroku
 from pathlib import Path
@@ -80,8 +82,12 @@ WSGI_APPLICATION = 'teste_tecnico.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:U8rJRlnmGUMrxMZ8jYuS@teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com:5432/postgres')} 
+default_dburl = 'postgres://postgres:U8rJRlnmGUMrxMZ8jYuS@teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com:5432/postgres'
+DATABASES = {
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+} 
 
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
