@@ -80,9 +80,7 @@ WSGI_APPLICATION = 'teste_tecnico.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(default='postgres://postgres:U8rJRlnmGUMrxMZ8jYuS@teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com:5432/postgres')
-}
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:U8rJRlnmGUMrxMZ8jYuS@teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com:5432/postgres')} 
 
 
 # Password validation
