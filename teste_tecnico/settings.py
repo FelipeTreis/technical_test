@@ -82,13 +82,16 @@ WSGI_APPLICATION = 'teste_tecnico.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-default_dburl = 'postgres://postgres:U8rJRlnmGUMrxMZ8jYuS@teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com:5432/postgres'
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
-} 
-
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'U8rJRlnmGUMrxMZ8jYuS',
+        'HOST': 'teste-tech-db.cmo3w72lfnee.us-east-1.rds.amazonaws.com',
+        'PORT': '5432'
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
