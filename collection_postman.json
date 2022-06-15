@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "88115e90-2cae-47fd-b74a-f2583f4bc03c",
+		"name": "Teste Técnico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21428670"
+	},
+	"item": [
+		{
+			"name": "PlotDataBase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://teste-tecnico-felipetreis.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"teste-tecnico-felipetreis",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
